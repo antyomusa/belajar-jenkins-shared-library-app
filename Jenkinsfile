@@ -1,11 +1,12 @@
 pipeline {
-    agent {
-        node {
-            label "Linux && java17"
-        }
-    }
+
     stages{
         stage("Build"){
+            agent {
+                node {
+                    label "Linux && java17"
+                }
+            }
             steps{
                 echo("Start Build")
                 sh("mvn clean compile test-compile")
@@ -14,6 +15,11 @@ pipeline {
         }
 
         stage("Test"){
+            agent {
+                node {
+                    label "Linux && java17"
+                }
+            }
             steps{
                 echo("Start Test")
                 sh("mvn test")
@@ -22,6 +28,11 @@ pipeline {
         }
 
         stage("Deploy"){
+            agent {
+                node {
+                    label "Linux && java17"
+                }
+            }
             steps{
                 echo("Hello Deploy 1")
                 echo("Hello Deploy 2")
