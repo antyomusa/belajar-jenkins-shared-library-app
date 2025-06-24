@@ -5,6 +5,16 @@ import antyomusa.jenkins.Output;
 pipeline {
     agent any
     stages {
+        stage("Hello Person") {
+            steps {
+                script {
+                    hello.person([
+                        firstName: "Anton",
+                        lastName: "Yoab"
+                    ])
+                }
+            }
+        }
         stage("Maven Build") {
             steps {
                 script {
