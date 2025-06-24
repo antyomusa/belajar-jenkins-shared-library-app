@@ -5,6 +5,14 @@ import antyomusa.jenkins.Output;
 pipeline {
     agent any
     stages {
+        stage("Library Resources") {
+            steps {
+                script {
+                    def config = LibraryResource("config/build.json")
+                    echo(config)
+                }
+            }
+        }
         stage("Hello Person") {
             steps {
                 script {
